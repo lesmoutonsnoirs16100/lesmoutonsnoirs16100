@@ -1,386 +1,269 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Les Moutons Noirs — Menuiserie & Sur Mesure</title>
-<meta name="description" content="Les Moutons Noirs — Création et pose de menuiserie sur mesure. Bespoke woodworking and custom fittings." />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Merriweather:wght@700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#0b0b0b;
-  --card:#111214;
-  --muted:#9aa0a6;
-  --accent:#4f1313; /* deep burgundy */
-  --wood:#6f3f2a;
-  --max-width:1100px;
-}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-  background-color:var(--bg);
-  color:#eaeaea;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.5;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><filter id="n"><feTurbulence baseFrequency="0.8" numOctaves="1" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(%23n)" opacity="0.02" fill="%23000000"/></svg>');
-  background-repeat:repeat;
-}
-.wrap{max-width:var(--max-width);margin:0 auto;padding:28px}
-header{display:flex;align-items:center;gap:18px;padding:14px 0}
-.logo-wrap{width:120px;height:120px;border-radius:16px;display:flex;align-items:center;justify-content:center;position:relative;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));box-shadow: inset 0 6px 14px rgba(0,0,0,0.6);}
-.logo-wrap img{width:90%;height:90%;object-fit:contain;display:block;filter:brightness(0) invert(1);mix-blend-mode:screen}
-/* Emboss effect using pseudo element */
-.logo-wrap::after{
-  content:'';position:absolute;inset:6px;border-radius:12px;pointer-events:none;
-  box-shadow: inset 0 6px 10px rgba(0,0,0,0.6), inset 0 -6px 8px rgba(255,255,255,0.02);
-  mix-blend-mode:multiply;opacity:0.9;
-}
-h1{font-family:Merriweather,serif;margin:0;font-size:28px}
-.sub{color:var(--muted);font-weight:600;font-size:13px}
-nav{margin-left:auto}
-nav a{color:var(--muted);text-decoration:none;margin-left:14px;font-size:14px}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Les Moutons Noirs – Menuiserie & Création sur mesure</title>
 
-/* HERO SECTION */
-.hero-section {
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 100px 10%;
-  color: white;
-  min-height: 80vh;
-}
+  <!-- Font Awesome for icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
 
-/* Full-width burgundy background behind everything */
-.hero-banner-bg {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #4b0b12; /* Deep burgundy */
-  z-index: 0;
-}
-
-/* Hero content layout */
-.hero-content {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  width: 100%;
-  gap: 2rem;
-}
-
-/* Text block */
-.hero-text {
-  flex: 1 1 400px;
-  max-width: 600px;
-}
-
-.hero-text h1 {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 0.8rem;
-}
-
-.hero-text h2 {
-  font-size: 1.2rem;
-  color: #ddd;
-  margin-bottom: 1rem;
-}
-
-.hero-text p {
-  color: #ccc;
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.hero-button {
-  display: inline-block;
-  padding: 0.8rem 2rem;
-  background-color: #4b0b12;
-  border: 2px solid #fff;
-  color: #fff;
-  border-radius: 2rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.hero-button:hover {
-  background-color: #fff;
-  color: #4b0b12;
-}
-
-/* Carousel styles */
-.hero-carousel {
-  flex: 1 1 400px;
-  position: relative;
-  height: 400px;
-  border-radius: 1rem;
-  overflow: hidden;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
-}
-
-.carousel-images {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.carousel-images img {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 2s ease-in-out;
-}
-
-.carousel-images img.active {
-  opacity: 1;
-}
-
-/* Responsive tweaks */
-@media (max-width: 900px) {
-  .hero-content {
-    flex-direction: column;
-  }
-  .hero-carousel {
-    width: 100%;
-    height: 300px;
-  }
-}
-
-
-/* Columns */
-.columns{display:grid;grid-template-columns:1fr 360px;gap:28px;margin-top:32px}
-.card{background:transparent;padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
-
-/* Services */
-.services{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.service{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));min-height:84px}
-.service h3{margin:0 0 6px 0;font-size:16px}
-.service p{margin:0;color:var(--muted);font-size:14px}
-
-/* Gallery */
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px}
-.gallery img{width:100%;height:240px;object-fit:cover;border-radius:8px;display:block;opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease;box-shadow:0 6px 20px rgba(0,0,0,0.6)}
-
-/* Contact form */
-.contact-list a{color:#fff;text-decoration:none;font-weight:600}
-.muted{color:var(--muted);font-size:13px}
-
-/* Buttons */
-.btn{display:inline-block;padding:10px 14px;border-radius:8px;background:linear-gradient(180deg,var(--accent),#3f0f0f);border:0;color:#fff;font-weight:700;text-decoration:none}
-
-/* responsive */
-@media (max-width:920px){
-  .columns{grid-template-columns:1fr}
-  .gallery{grid-template-columns:repeat(2,1fr)}
-  nav{display:none}
-}
-@media (max-width:480px){
-  .logo-wrap{width:86px;height:86px}
-  h1{font-size:20px}
-  .gallery img{height:160px}
-}
-
-/* minimal footer spacing */
-footer{margin-top:42px;padding:28px 0}
-</style>
-</head>
-<body>
-  <div class="wrap">
-    <header>
-      <div class="logo-wrap" aria-hidden="true">
-        <!-- Replace logo.jpg with your uploaded transparent PNG for best embossed result -->
-        <img src="logo.png" alt="Les Moutons Noirs logo">
-      </div>
-      <div>
-        <h1>Les Moutons Noirs</h1>
-        <div class="sub">Menuiserie • Sur mesure • Créateur d'objets et d'espaces d'exception</div>
-      </div>
-      <nav>
-        <a href="#about">About / À propos</a>
-        <a href="#services">Services</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
-
-    <section id="hero" class="hero-section">
-  <div class="hero-banner-bg"></div>
-
-  <div class="hero-content">
-    <div class="hero-text">
-      <h1>Menuiserie & création sur mesure d’espaces et d’objets d’exception</h1>
-      <h2>Bespoke woodworking and the creation of exceptional spaces and objects.</h2>
-      <p>Plus de 15 ans d'expérience<br>Established 2024</p>
-      <a href="#contact" class="hero-button">Contact</a>
-    </div>
-
-    <div class="hero-carousel">
-      <div class="carousel-images">
-        <img src="photo1.jpg" alt="Workshop">
-        <img src="photo2.jpg" alt="Window fitting">
-        <img src="photo3.jpg" alt="Custom table">
-        <img src="photo4.jpg" alt="Wood detail">
-        <img src="photo8.jpg" alt="Wooden stairs">
-        <img src="photo7.jpg" alt="Interior space">
-        <img src="photo6.jpg" alt="Shelf design">
-        <img src="photo5.jpg" alt="Tools">
-      </div>
-    </div>
-  </div>
-</section>
-
-    <div class="columns">
-      <main>
-        <section id="about" class="card">
-          <h3>À propos / About</h3>
-          <p class="muted">FR — Basée en Charente, Les Moutons Noirs réalise divers travaux de menuiserie et d'agencement sur mesure. Nous intervenons sur de la création d'objets, la pose de menuiseries et la conception d'espaces uniques, avec audace et un soin particulier apporté aux matériaux et aux finitions.</p>
-          <p class="muted">EN — Based in Charente, Les Moutons Noirs carries out a wide range of bespoke woodworking and fitting works. We create objects, install windows and doors, and design unique spaces, with strong attention to materials and finishes.</p>
-        </section>
-
-        <section id="services" class="card" style="margin-top:18px">
-          <h3>Services</h3>
-          <div class="services" aria-hidden="false">
-            <div class="service">
-              <h3>Menuiserie intérieure<br><span style="font-weight:600">Interior Woodwork</span></h3>
-              <p class="muted">Meubles, escaliers, aménagements sur mesure.</p>
-            </div>
-            <div class="service">
-              <h3>Fenêtres & Pose<br><span style="font-weight:600">Windows & Fitting</span></h3>
-              <p class="muted">Remplacement et pose sur mesure — bois, aluminium, PVC.</p>
-            </div>
-            <div class="service">
-              <h3>Agencement sur mesure<br><span style="font-weight:600">Custom Fittings</span></h3>
-              <p class="muted">Cuisines, boutiques, bureaux, rangements intégrés.</p>
-            </div>
-            <div class="service">
-              <h3>Créations uniques<br><span style="font-weight:600">Unique Creations</span></h3>
-              <p class="muted">Objets et éléments d'exception conçus pour durer.</p>
-            </div>
-          </div>
-        </section>
-
-        <section id="gallery" class="card" style="margin-top:18px">
-          <h3>Galerie / Gallery</h3>
-          <p class="muted">Photos — sélectionnez pour remplacer par vos propres images.</p>
-          <div class="gallery" id="gallery-grid">
-            <!-- Images will be injected by script -->
-          </div>
-        </section>
-      </main>
-
-      <aside>
-        <section id="contact" class="card">
-          <h3>Contact</h3>
-          <div class="muted">Téléphone / Phone</div>
-          <div style="margin-bottom:8px"><a href="tel:+33636800641">06.36.80.06.41</a></div>
-          <div class="muted">Email</div>
-          <div style="margin-bottom:8px"><a href="mailto:lesmoutonsnoirs16100@gmail.com">lesmoutonsnoirs16100@gmail.com</a></div>
-          <div class="muted">Localisation / Location</div>
-          <div style="margin-bottom:8px">Charente, France</div>
-          <div class="muted">SIRET</div>
-          <div style="margin-bottom:8px">51015610200012 — Entrepreneur Individuel</div>
-
-          <hr style="margin:12px 0;border:none;border-top:1px solid rgba(255,255,255,0.04)">
-
-          <h4>Envoyer un message / Send a message</h4>
-          <form id="contact-form" class="muted" onsubmit="return sendMail(event)">
-            <input id="name" name="name" placeholder="Nom / Name" style="width:100%;padding:10px;margin-top:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#fff">
-            <input id="email" name="email" placeholder="Email" type="email" style="width:100%;padding:10px;margin-top:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#fff">
-            <textarea id="message" name="message" rows="4" placeholder="Message" style="width:100%;padding:10px;margin-top:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#fff"></textarea>
-            <button class="btn" type="submit" style="margin-top:10px">Envoyer / Send</button>
-            <div id="form-status" style="margin-top:8px;color:var(--muted);font-size:13px"></div>
-          </form>
-
-          <p class="muted" style="margin-top:12px;font-size:12px">Follow: <a href="https://www.facebook.com/profile.php?id=61561302372746&amp;sk=about" target="_blank" rel="noopener" style="color:var(--muted)">Facebook</a></p>
-        </section>
-      </aside>
-    </div>
-
-    <footer></footer>
-  </div>
-
-<script>
-// Simple fade-in on scroll for gallery items and general reveal
-function revealOnScroll() {
-  document.querySelectorAll('.gallery img').forEach(img => {
-    const rect = img.getBoundingClientRect();
-    if(rect.top < window.innerHeight - 60) {
-      img.style.opacity = 1;
-      img.style.transform = 'translateY(0)';
+  <style>
+    /* --- GLOBAL STYLES --- */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #111;
+      color: #fff;
+      overflow-x: hidden;
     }
-  });
-}
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', () => {
-  // populate gallery images (2 user photos + 6 curated Unsplash ones)
-  const images = [
-    'photo1.jpg',
-    'photo2.jpg',
-    'photo3.jpg',
-    'photo4.jpg',
-    'photo5.jpg',
-    'photo6.jpg',
-    'photo7.jpg',
-    'photo1.jpg'
-  ];
-  const grid = document.getElementById('gallery-grid');
-  images.forEach(src => {
-    const el = document.createElement('img');
-    el.src = src;
-    el.loading = 'lazy';
-    grid.appendChild(el);
-  });
-  revealOnScroll();
-});
+    a { text-decoration: none; color: inherit; }
+    h1, h2, h3 { font-weight: 600; }
 
-function sendMail(e){
-  e.preventDefault();
-  const name = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const message = document.getElementById('message').value.trim();
-  const to = 'lesmoutonsnoirs16100@gmail.com';
-  if(!email && !message){
-    document.getElementById('form-status').textContent = 'Veuillez saisir un email ou un message / Please enter an email or a message.';
-    return false;
-  }
-  const subject = encodeURIComponent('Demande — Les Moutons Noirs');
-  let body = '';
-  if(name) body += 'Nom: '+name+'\\n';
-  if(email) body += 'Email: '+email+'\\n\\n';
-  if(message) body += message+'\\n\\n';
-  body += '---\\nSite: Les Moutons Noirs';
-  const mailto = 'mailto:'+to+'?subject='+subject+'&body='+encodeURIComponent(body);
-  window.location.href = mailto;
-  document.getElementById('form-status').textContent = 'Opening your mail app... / Ouverture de votre client mail...';
-  return false;
-}
-</script>
+    /* --- HERO SECTION --- */
+    .hero-section {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 100px 10%;
+      color: white;
+      min-height: 80vh;
+    }
+    .hero-banner-bg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #4b0b12;
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      width: 100%;
+      gap: 2rem;
+    }
+    .hero-text {
+      flex: 1 1 400px;
+      max-width: 600px;
+    }
+    .hero-text h1 {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+    .hero-text h2 {
+      font-size: 1.2rem;
+      color: #ddd;
+      margin-bottom: 1rem;
+    }
+    .hero-text p {
+      color: #ccc;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-button {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background-color: #4b0b12;
+      border: 2px solid #fff;
+      color: #fff;
+      border-radius: 2rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .hero-button:hover {
+      background-color: #fff;
+      color: #4b0b12;
+    }
+
+    /* --- CAROUSEL --- */
+    .hero-carousel {
+      flex: 1 1 400px;
+      position: relative;
+      height: 400px;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
+    }
+    .carousel-images {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .carousel-images img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+    }
+    .carousel-images img.active {
+      opacity: 1;
+    }
+    @media (max-width: 900px) {
+      .hero-content { flex-direction: column; }
+      .hero-carousel { width: 100%; height: 300px; }
+    }
+
+    /* --- CONTACT SECTION --- */
+    #contact {
+      background: #111;
+      padding: 80px 10%;
+      text-align: center;
+    }
+    #contact h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    #contact p {
+      color: #ccc;
+      margin-bottom: 2rem;
+    }
+    .contact-form {
+      margin-bottom: 2rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      max-width: 500px;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 0.5rem;
+    }
+    .contact-form button {
+      background-color: #4b0b12;
+      color: white;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 2rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .contact-form button:hover {
+      background-color: #7a1822;
+    }
+
+    /* --- SOCIAL LINKS --- */
+    .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background-color: #4b0b12;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.7rem 1.4rem;
+      border-radius: 2rem;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+    }
+    .social-link i {
+      background-color: white;
+      color: #4b0b12;
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .social-link:hover {
+      background-color: #7a1822;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO SECTION -->
+  <section id="hero" class="hero-section">
+    <div class="hero-banner-bg"></div>
+
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Création sur mesure d’espaces et d’objets d’exception</h1>
+        <h2>Creation of exceptional spaces and objects.</h2>
+        <p>Plus de 15 ans d'expérience<br>Established 2024</p>
+        <a href="#contact" class="hero-button">Contact</a>
+      </div>
+
+      <div class="hero-carousel">
+        <div class="carousel-images">
+          <img src="photo1.jpg" alt="Workshop">
+          <img src="photo2.jpg" alt="Window fitting">
+          <img src="photo3.jpg" alt="Custom table">
+          <img src="photo4.jpg" alt="Wood detail">
+          <img src="photo5.jpg" alt="Wooden stairs">
+          <img src="photo6.jpg" alt="Interior space">
+          <img src="photo7.jpg" alt="Shelf design">
+          <img src="photo8.jpg" alt="Tools">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email : <a href="mailto:lesmoutonsnoirs16100@gmail.com">lesmoutonsnoirs16100@gmail.com</a></p>
+
+    <form class="contact-form">
+      <input type="text" placeholder="Nom / Name" required><br>
+      <input type="email" placeholder="Email" required><br>
+      <textarea rows="5" placeholder="Message"></textarea><br>
+      <button type="submit">Envoyer / Send</button>
+    </form>
+
+    <div class="social-links">
+      <a href="https://www.facebook.com/profile.php?id=61561302372746&sk=about" target="_blank" class="social-link">
+        <i class="fab fa-facebook-f"></i> Facebook
+      </a>
+      <a href="#" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="#" class="social-link"><i class="fab fa-youtube"></i> YouTube</a>
+      <a href="#" class="social-link"><i class="fab fa-x-twitter"></i> Twitter</a>
+      <a href="#" class="social-link"><i class="fab fa-tiktok"></i> TikTok</a>
+      <a href="#" class="social-link"><i class="fab fa-pinterest"></i> Pinterest</a>
+      <a href="#" class="social-link"><i class="fab fa-snapchat-ghost"></i> Snapchat</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="text-align:center; padding:1rem; background:#000; color:#888;">
+    © 2025 Les Moutons Noirs — Menuiserie sur mesure
+  </footer>
+
+  <!-- JS for carousel -->
   <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const slides = document.querySelectorAll(".carousel-images img");
-    let index = 0;
-
-    // initialize
-    slides[index].classList.add("active");
-
-    // change every 6 seconds (slow fade)
-    setInterval(() => {
-      slides[index].classList.remove("active");
-      index = (index + 1) % slides.length;
+    document.addEventListener("DOMContentLoaded", () => {
+      const slides = document.querySelectorAll(".carousel-images img");
+      let index = 0;
       slides[index].classList.add("active");
-    }, 6000);
-  });
-</script>
+      setInterval(() => {
+        slides[index].classList.remove("active");
+        index = (index + 1) % slides.length;
+        slides[index].classList.add("active");
+      }, 6000);
+    });
+  </script>
 </body>
 </html>

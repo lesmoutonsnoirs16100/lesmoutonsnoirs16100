@@ -5,14 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Les Moutons Noirs – Menuiserie & Création sur mesure</title>
 
-  <!-- Font Awesome for icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
-    /* --- GLOBAL STYLES --- */
+    /* GLOBAL */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Poppins', sans-serif;
@@ -23,7 +21,21 @@
     a { text-decoration: none; color: inherit; }
     h1, h2, h3 { font-weight: 600; }
 
-    /* --- HERO SECTION --- */
+    /* LOGO */
+    .logo-container {
+      background-color: #000;
+      text-align: center;
+      padding: 60px 0 20px 0;
+      box-shadow: inset 0 4px 8px rgba(255,255,255,0.05),
+                  inset 0 -4px 8px rgba(0,0,0,0.5);
+    }
+    .logo-container img {
+      width: 220px;
+      filter: drop-shadow(0 2px 2px rgba(255,255,255,0.1))
+              drop-shadow(0 -2px 2px rgba(0,0,0,0.6));
+    }
+
+    /* HERO */
     .hero-section {
       position: relative;
       overflow: hidden;
@@ -85,7 +97,7 @@
       color: #4b0b12;
     }
 
-    /* --- CAROUSEL --- */
+    /* CAROUSEL */
     .hero-carousel {
       flex: 1 1 400px;
       position: relative;
@@ -111,12 +123,13 @@
     .carousel-images img.active {
       opacity: 1;
     }
+
     @media (max-width: 900px) {
       .hero-content { flex-direction: column; }
       .hero-carousel { width: 100%; height: 300px; }
     }
 
-    /* --- CONTACT SECTION --- */
+    /* CONTACT */
     #contact {
       background: #111;
       padding: 80px 10%;
@@ -128,7 +141,7 @@
     }
     #contact p {
       color: #ccc;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
     .contact-form {
       margin-bottom: 2rem;
@@ -155,7 +168,7 @@
       background-color: #7a1822;
     }
 
-    /* --- SOCIAL LINKS --- */
+    /* SOCIAL LINKS */
     .social-links {
       display: flex;
       flex-wrap: wrap;
@@ -168,7 +181,6 @@
       gap: 0.6rem;
       background-color: #4b0b12;
       color: white;
-      text-decoration: none;
       font-weight: 500;
       padding: 0.7rem 1.4rem;
       border-radius: 2rem;
@@ -190,15 +202,27 @@
       transform: translateY(-2px);
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #000;
+      color: #888;
+    }
   </style>
 </head>
 
 <body>
 
-  <!-- HERO SECTION -->
+  <!-- LOGO HEADER -->
+  <div class="logo-container">
+    <img src="logo.png" alt="Les Moutons Noirs logo">
+  </div>
+
+  <!-- HERO -->
   <section id="hero" class="hero-section">
     <div class="hero-banner-bg"></div>
-
     <div class="hero-content">
       <div class="hero-text">
         <h1>Menuiserie & création sur mesure d’espaces et d’objets d’exception</h1>
@@ -206,25 +230,25 @@
         <p>Plus de 15 ans d'expérience<br>Established 2024</p>
         <a href="#contact" class="hero-button">Contact</a>
       </div>
-
       <div class="hero-carousel">
         <div class="carousel-images">
-          <img src="photo1.jpg" alt="photo1">
-          <img src="photo2.jpg" alt="photo2">
-          <img src="photo3.jpg" alt="photo3">
-          <img src="photo4.jpg" alt="photo4">
-          <img src="photo5.jpg" alt="photo5">
-          <img src="photo6.jpg" alt="photo6">
-          <img src="photo7.jpg" alt="photo7">
-          <img src="photo8.jpg" alt="photo8">
+          <img src="workshop.jpg" alt="Workshop">
+          <img src="window-fitting.jpg" alt="Window fitting">
+          <img src="custom-table.jpg" alt="Custom table">
+          <img src="woodgrain-detail.jpg" alt="Wood detail">
+          <img src="wooden-stairs.jpg" alt="Wooden stairs">
+          <img src="interior-space.jpg" alt="Interior space">
+          <img src="shelf-design.jpg" alt="Shelf design">
+          <img src="tools.jpg" alt="Tools">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
+  <!-- CONTACT -->
   <section id="contact">
     <h2>Contact</h2>
+    <p>Téléphone : <strong>+33 6 00 00 00 00</strong></p>
     <p>Email : <a href="mailto:lesmoutonsnoirs16100@gmail.com">lesmoutonsnoirs16100@gmail.com</a></p>
 
     <form class="contact-form">
@@ -240,19 +264,17 @@
       </a>
       <a href="#" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
       <a href="#" class="social-link"><i class="fab fa-youtube"></i> YouTube</a>
-      <a href="#" class="social-link"><i class="fab fa-x-twitter"></i> Twitter</a>
-      <a href="#" class="social-link"><i class="fab fa-tiktok"></i> TikTok</a>
       <a href="#" class="social-link"><i class="fab fa-pinterest"></i> Pinterest</a>
       <a href="#" class="social-link"><i class="fab fa-snapchat-ghost"></i> Snapchat</a>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer style="text-align:center; padding:1rem; background:#000; color:#888;">
+  <footer>
     © 2025 Les Moutons Noirs — Menuiserie sur mesure
   </footer>
 
-  <!-- JS for carousel -->
+  <!-- CAROUSEL SCRIPT -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const slides = document.querySelectorAll(".carousel-images img");
